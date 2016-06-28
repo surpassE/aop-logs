@@ -24,8 +24,8 @@ import com.sirding.annotation.AssertParam;
  * 那么可以切controller和service。例如当前配置切入点为@Pointcut("@annotation(com.surpass.system.aop.Action)")那么在controller
  * 或是service中含有@Action注解的方法都会被切面拦截。
  * 如果切面是在spring-mvc.xml中注入的，那么切面智能拦截controller中含有@Action注解的方法
- * @author surpassE
- * @time 2015-01-22
+ * @author zc.ding
+ * @time 2016-06-28
  *
  */
 @Aspect
@@ -36,9 +36,7 @@ public class UserOperLogAOP {
 	 */
 	private static final Logger logger = Logger.getLogger(UserOperLogAOP.class);
 	
-	public UserOperLogAOP(){
-//		System.out.println("初始化[UserOperLogServiceAOP]");
-	}
+	public UserOperLogAOP(){}
 
 	@Pointcut("@annotation(com.surpass.system.aop.Action)")
 	//	@Pointcut("(execution(* com.surpass.system.filters.JspFilter.*(..)))")
