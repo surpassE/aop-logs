@@ -59,6 +59,31 @@ public class ReflectUtil {
 		}
 	}
 	
+	public static Object callIsOrGetMethod(Object obj, String fieldName) {
+		Object value = null;
+		try {
+			if(obj != null){
+				Class<?> clazz = obj.getClass();
+				Field[] fields = clazz.getDeclaredFields();
+				if(fields != null){
+					for(Field field : fields){
+						if(fieldName.equals(field.getName())){
+							Object type = field.getType();
+							String methodName = null;
+							if(type instanceof Boolean && fieldName.startsWith("is")){
+								methodName = getIsMethod(fieldName);
+							}else{
+								methodName = getGetMethod(fieldName);
+							}
+							Method method = clazz.getDeclaredMethod(methodName);
+							value = method.invoke(obj);
+						}
+					}
+				}
+			}
+		} catch (Exception e) {}
+		return value;
+	}
 	/**
 	 * 通过isXXX()或是getXXX()获得obj中对应的属性值
 	 * 

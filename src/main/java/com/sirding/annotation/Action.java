@@ -40,10 +40,10 @@ public @interface Action {
 	
 	/**
 	 * 操作日志的类型
-	 * @default null
+	 * @default TYPE1
 	 * @return
 	 */
-	public OperType operType() default OperType.NULL;
+	public OperType operType() default OperType.TYPE1;
 	
 	/**
 	 * 默认的参数的类型,可以是实体类的完整名称，也可以是类的名称

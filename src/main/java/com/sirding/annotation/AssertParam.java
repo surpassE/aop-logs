@@ -15,6 +15,8 @@ public @interface AssertParam {
 	 */
 	int index() default -1;
 	
+	String param() default "";
+	
 	/**
 	 * 参数期待的值
 	 * @default ""
@@ -24,7 +26,7 @@ public @interface AssertParam {
 	
 	/**
 	 * 说明信息, 信息中可包含{0}、{1}等配置，
-	 * eg ：
+	 * eg1 ：
 	 * @Action(asserParams = {
 	 *		@AssertParam(index = 1, value="on", desc = "激活用户[{0}]"),
 	 *		@AssertParam(index = 1, value="off", desc = "锁定用户[{0}]")})
@@ -32,6 +34,14 @@ public @interface AssertParam {
 	 *	...处理过程略
 	 * }
 	 * 那么{0}将被serviceId的值替换，目前只支持基本数据类型。
+	 * eg2:
+	 * @Action(asserParams = {
+	 * 		@AssertParam(index = 1, value="", desc = "添加用户[{User.userName}]")
+	 * })
+	 * public void addUser(User user){
+	 * 	处理流程...
+	 * }
+	 * 
 	 * @return
 	 */
 	String desc() default "";
