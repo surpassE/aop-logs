@@ -75,6 +75,10 @@ public class MethodParamInfo {
 		if(index == -1){
 			return this.className + "_" + suffix;
 		}
+		String key = this.index + "_" + this.className + "_" + suffix;
+		if(key.endsWith("_")){
+			return key.substring(0, key.length() - 1);
+		}
 		return this.index + "_" + this.className + "_" + suffix;
 	}
 	

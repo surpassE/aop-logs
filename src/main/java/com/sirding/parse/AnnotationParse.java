@@ -51,9 +51,9 @@ public class AnnotationParse {
 					}else if(param.matches(pattern.pattern())){
 						Map<String, MethodParamInfo> aopMap = this.methodParamToMap(args);
 						MethodParamInfo mpi = this.paramToMethodParamInfo(param);
-						MethodParamInfo aopMpi = aopMap.get(mpi.getKey());
+						MethodParamInfo aopMpi = aopMap.get(mpi.getAopMpiKey());
 						if(aopMpi != null){
-							Object val = ReflectUtil.callAssignedMethod(aopMpi.getObj(), mpi.getMethodName());
+							Object val = ReflectUtil.callIsOrGetMethod(aopMpi.getObj(), mpi.getMethodName());
 							if(val != null && val.toString().equalsIgnoreCase(value)){
 								flag = true;
 							}

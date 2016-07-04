@@ -6,7 +6,7 @@ import com.sirding.enums.OperType;
 
 public class OperateLog {
 
-	@Action(desc = "测试用户[{0}],其密码为[{1}]")
+	@Action(desc = "测试方法1用户[{0}],其密码为[{1}]")
 	public void test1(String name, String pwd){
 		System.out.println("name:" + name + ",pwd:" + pwd);
 	}
@@ -29,11 +29,21 @@ public class OperateLog {
 	public void test4(User user){
 		System.out.println("name:" + user.getName() + ",pwd:" + user.getPwd());
 	}
+	
 	@Action(asserParams = {
-			@AssertParam(param = "${User.name}", value = "zc.ding", desc = "测试方法3用户[{User.name}],密码[{User.pwd}]"),
-			@AssertParam(param = "${User.name}", value = "sirding", desc = "测试方法3用户[{User.name}],密码[{User.pwd}]")
+			@AssertParam(param = "${User.name}", value = "zc.ding", desc = "测试方法5用户[{User.name}],密码[{User.pwd}]"),
+			@AssertParam(param = "${User.name}", value = "sirding", desc = "测试方法5用户[{User.name}],密码[{User.pwd}]")
 	})
-	public void test3hh(User user,String name, String pwd){
-		System.out.println("name:" + name + ",pwd:" + pwd);
+	public void test5(User user,String name, String pwd){
+		System.out.println("user.name:" + user.getName() + ",user.pwd:" + user.getPwd() + ",name:" + name + ",pwd:" + pwd);
+	}
+	
+	@Action(asserParams = {
+			@AssertParam(param = "${0_User.name}", value = "zc.ding", desc = "测试方法6用户[{0_User.name}],密码[{0_User.pwd}]"),
+			@AssertParam(param = "${0_User.name}", value = "sirding", desc = "测试方法6用户[{1_User.name}],密码[{1_User.pwd}]")
+	})
+	public void test6(User user, User user2){
+		System.out.println("user.name:" + user.getName() + ",user.pwd:" + user.getPwd());
+		System.out.println("user2.name:" + user2.getName() + ",user2.pwd:" + user2.getPwd());
 	}
 }

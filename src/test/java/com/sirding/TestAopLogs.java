@@ -46,6 +46,22 @@ public class TestAopLogs {
 	}
 	
 	@Test
+	public void test5(){
+//		Object[] args = new Object[]{new User("zc.ding", "jtsec"), "test", "test_pwd"};
+		Object[] args = new Object[]{new User("sirding", "yrtz"), "test", "test_pwd"};
+		this.callMethod("test5", args);
+		logger.debug("测试test5...okok...");
+	}
+	
+	@Test
+	public void test6(){
+//		Object[] args = new Object[]{new User("zc.ding", "jtsec"), new User("sirding", "yrtz")};
+		Object[] args = new Object[]{new User("sirding", "yrtz"), new User("zc.ding_aa", "jtsec_aa")};
+		this.callMethod("test6", args);
+		logger.debug("测试test6...okok...");
+	}
+	
+	@Test
 	public void demo(){
 		User user = new User();
 		Class<?> clazz = user.getClass();

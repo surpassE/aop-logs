@@ -19,6 +19,18 @@
 		<developerConnection>scm:git:git@github.com:surpassE/aop-logs.git</developerConnection>
 		<url>git@github.com:surpassE/aop-logs.git</url>
 	</scm>
+	
+	<repositories>
+		<repository>
+		     <id>uk_maven_org</id>  
+		     <name>uk_maven_org</name >  
+		     <layout>default</layout >  
+		     <url>http://uk.maven.org</url >  
+		     <snapshots>  
+		       <enabled>false</enabled >  
+		     </snapshots>  
+		</repository>
+	</repositories>
 
 	<developers>
 		<developer>
